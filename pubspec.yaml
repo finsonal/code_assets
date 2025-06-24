@@ -1,4 +1,4 @@
-name: myfinsonal_main
+name: code_assets
 description: 商哩 SAIL LINK 电商社交平台
 
 publish_to: 'none' # 防止意外发布到 pub.dev
