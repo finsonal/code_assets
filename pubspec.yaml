@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   provider: ^6.0.3
-  http: ^1.2.2
+  http: ^0.13.5  # 自动接受 0.13.x 的更新
   shared_preferences: ^2.0.15
   intl: ^0.20.2
   flutter_localizations:
