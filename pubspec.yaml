@@ -15,7 +15,8 @@ dependencies:
     sdk: flutter
   # logger: ^1.4.0  # 修复缩进并添加空格以符合YAML语法要求
   cupertino_icons: ^1.0.2
-  provider: ^6.0.3
+  provider: ^6.0.0
+  # 修复私有仓库URL错误，使用pub.dev公共仓库
   http: ^1.4.0
   shared_preferences: ^2.2.2
   intl: ^0.20.2
@@ -72,7 +73,7 @@ dependencies:
   flutter_launcher_icons: ^0.14.3
   # # # # # 已移除重复的flutter_dotenv依赖项 (重复项已移除) (重复项已移除) (重复项已移除) (重复项已移除)
   logger: ^2.5.0
-  logger: ^2.5.0
+  # 移除重复的logger依赖项
   get_it: ^7.2.0
   flutter_bloc: ^9.1.1
   equatable: ^2.0.5
