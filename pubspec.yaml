@@ -13,101 +13,370 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # logger: ^1.4.0  # 修复缩进并添加空格以符合YAML语法要求
-  cupertino_icons: ^1.0.2
-  provider: ^6.0.0
-  # 修复私有仓库URL错误，使用pub.dev公共仓库
-  http: ^1.4.0
-  shared_preferences: ^2.2.2
-  intl: ^0.20.2
-  # 合并本地logger依赖与远程仓库的更新版本依赖
+  # 基础UI组件
+  cupertino_icons:
+    hosted:
+      url: https://pub.dev
+    version: ^1.0.2
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  # 状态管理
+  provider:
+    hosted:
+      url: https://pub.dev
+    version: ^6.0.0
+  # 网络请求
+  http:
+    hosted:
+      url: https://pub.dev
+    version: ^1.4.0
+  # 本地存储
+  shared_preferences:
+    hosted:
+      url: https://pub.dev
+    version: ^2.2.2
+  # 国际化
+  intl:
+    hosted:
+      url: https://pub.dev
+    version: ^0.20.2
+  # 国际化支持
   flutter_localizations:
     sdk: flutter
-  image_picker: ^1.1.2
-  path_provider: ^2.0.11
-  sqflite: ^2.0.3
-  url_launcher: ^6.1.5
-  cached_network_image: ^3.2.1
-  flutter_svg: ^2.0.10+1
-  # 保留本地较新版本以支持高级SVG功能
-  geolocator: ^12.0.0
-  amap_flutter_map: ^3.0.0
-  amap_flutter_location: ^3.0.0
-  # amap_search_flutter: ^3.0.0  # 暂时注释，该包在pub.dev上不存在
-  flutter_slidable: ^3.1.2
-  flutter_staggered_grid_view: ^0.7.0
-  flutter_rating_bar: ^4.0.1
-  carousel_slider: ^5.1.1
-  shimmer: ^3.0.0
-  flutter_secure_storage: ^9.2.4
-  dio: ^5.8.0+1
-  socket_io_client: ^3.1.2
-  web_socket_channel: ^3.0.3
-  # 采用远程仓库的实时通讯依赖新版本
-  encrypt: ^5.0.1
-  pointycastle: ^3.7.4
-  # flutter_local_notifications: ^9.7.0  # 暂时注释掉，因为与flutter_driver不兼容
-  firebase_core: ^3.5.0
-  firebase_messaging: ^15.2.0
-  # 升级Firebase依赖以支持最新功能
-  firebase_analytics: ^11.3.0
-  firebase_crashlytics: ^4.1.0
-  flutter_markdown: ^0.7.4+3
-  photo_view: ^0.15.0
-  video_player: ^2.4.5
-  chewie: ^1.3.4
-  flutter_html: ^3.0.0
-  webview_flutter: ^4.13.0
-  # 采用远程仓库的HTML渲染和WebView新版本
-  flutter_stripe: ^11.5.0
-  # flutter_paypal: ^0.0.8  # 暂时注释掉，因为与webview_flutter ^3.0.4版本冲突
-  # flutter_alipay: ^0.1.2  # 暂时注释掉不支持空安全的包
-  # wechat_pay: ^0.3.0  # 暂时注释掉不存在的包
-  flutter_easyloading: ^3.0.5
-  flutter_easyrefresh: ^2.2.1
-  permission_handler: ^11.3.1
-  package_info_plus: ^8.0.2
-  # device_info_plus: ^4.1.2  # 暂时注释掉，因为与integration_test不兼容
-  connectivity_plus: ^6.1.4
-  flutter_native_splash: ^2.2.7
-  flutter_launcher_icons: ^0.14.3
-  # # # # # 已移除重复的flutter_dotenv依赖项 (重复项已移除) (重复项已移除) (重复项已移除) (重复项已移除)
-  logger: ^2.5.0
-  # 移除重复的logger依赖项
-  get_it: ^7.2.0
-  flutter_bloc: ^9.1.1
-  equatable: ^2.0.5
-  json_annotation: ^4.6.0
-  freezed_annotation: ^2.1.0
-  dartz: ^0.10.1
-  rxdart: ^0.28.0
-  uuid: ^4.5.1
-  flutter_screenutil: ^5.5.3+2
-  flutter_spinkit: ^5.1.0
-  # flutter_form_builder: ^7.7.0  # 暂时注释掉，因为与intl ^0.18.1版本冲突
-  # form_builder_validators: ^8.3.0  # 暂时注释掉，因为依赖于flutter_form_builder
-  flutter_hooks: ^0.20.5
-  hooks_riverpod: ^2.6.1
-  flutter_riverpod: ^2.6.1
-  riverpod: ^2.6.1
-  auto_route: ^8.1.4
-  injectable: ^2.4.2
-  get: ^4.6.5
-  flutter_gen: ^5.9.0
-  geolocator_windows: ^0.2.3
+  # 图片选择
+  image_picker:
+    hosted:
+      url: https://pub.dev
+    version: ^1.1.2
+  # 文件路径
+  path_provider:
+    hosted:
+      url: https://pub.dev
+    version: ^2.0.11
+  # 本地数据库
+  sqflite:
+    hosted:
+      url: https://pub.dev
+    version: ^2.3.0
+  # URL启动
+  url_launcher:
+    hosted:
+      url: https://pub.dev
+    version: ^6.1.5
+  # 网络图片缓存
+  cached_network_image:
+    hosted:
+      url: https://pub.dev
+    version: ^3.2.1
+  # SVG支持
+  flutter_svg:
+    hosted:
+      url: https://pub.dev
+    version: ^2.0.10+1
+  # 定位服务
+  geolocator:
+    hosted:
+      url: https://pub.dev
+    version: ^12.0.0
+  # 高德地图
+  amap_flutter_map:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.0
+  # 高德定位
+  amap_flutter_location:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.0
+  # 滑动组件
+  flutter_slidable:
+    hosted:
+      url: https://pub.dev
+    version: ^3.1.2
+  # 瀑布流布局
+  flutter_staggered_grid_view:
+    hosted:
+      url: https://pub.dev
+    version: ^0.7.0
+  # 评分组件
+  flutter_rating_bar:
+    hosted:
+      url: https://pub.dev
+    version: ^4.0.1
+  # 轮播图
+  carousel_slider:
+    hosted:
+      url: https://pub.dev
+    version: ^5.1.1
+  # 骨架屏
+  shimmer:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.0
+  # 安全存储
+  flutter_secure_storage:
+    hosted:
+      url: https://pub.dev
+    version: ^9.2.4
+  # 高级网络请求
+  dio:
+    hosted:
+      url: https://pub.dev
+    version: ^5.8.0+1
+  # Socket.IO客户端
+  socket_io_client:
+    hosted:
+      url: https://pub.dev
+    version: ^3.1.2
+  # WebSocket支持
+  web_socket_channel:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.3
+  # 加密
+  encrypt:
+    hosted:
+      url: https://pub.dev
+    version: ^5.0.1
+  # 加密算法
+  pointycastle:
+    hosted:
+      url: https://pub.dev
+    version: ^3.7.4
+  # Firebase核心
+  firebase_core:
+    hosted:
+      url: https://pub.dev
+    version: ^3.5.0
+  # Firebase消息推送
+  firebase_messaging:
+    hosted:
+      url: https://pub.dev
+    version: ^15.2.0
+  # Firebase分析
+  firebase_analytics:
+    hosted:
+      url: https://pub.dev
+    version: ^11.3.0
+  # Firebase崩溃报告
+  firebase_crashlytics:
+    hosted:
+      url: https://pub.dev
+    version: ^4.1.0
+  # Markdown渲染
+  flutter_markdown:
+    hosted:
+      url: https://pub.dev
+    version: ^0.7.4+3
+  # 图片预览
+  photo_view:
+    hosted:
+      url: https://pub.dev
+    version: ^0.15.0
+  # 视频播放
+  video_player:
+    hosted:
+      url: https://pub.dev
+    version: ^2.4.5
+  # 视频播放器UI
+  chewie:
+    hosted:
+      url: https://pub.dev
+    version: ^1.3.4
+  # HTML渲染
+  flutter_html:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.0
+  # WebView
+  webview_flutter:
+    hosted:
+      url: https://pub.dev
+    version: ^4.13.0
+  # Stripe支付
+  flutter_stripe:
+    hosted:
+      url: https://pub.dev
+    version: ^11.5.0
+  # 加载动画
+  flutter_easyloading:
+    hosted:
+      url: https://pub.dev
+    version: ^3.0.5
+  # 下拉刷新
+  flutter_easyrefresh:
+    hosted:
+      url: https://pub.dev
+    version: ^2.2.1
+  # 权限处理
+  permission_handler:
+    hosted:
+      url: https://pub.dev
+    version: ^11.3.1
+  # 应用信息
+  package_info_plus:
+    hosted:
+      url: https://pub.dev
+    version: ^8.0.2
+  # 网络连接
+  connectivity_plus:
+    hosted:
+      url: https://pub.dev
+    version: ^6.1.4
+  # 启动图
+  flutter_native_splash:
+    hosted:
+      url: https://pub.dev
+    version: ^2.2.7
+  # 应用图标
+  flutter_launcher_icons:
+    hosted:
+      url: https://pub.dev
+    version: ^0.14.3
+  # 日志
+  logger:
+    hosted:
+      url: https://pub.dev
+    version: ^2.5.0
+  # 依赖注入
+  get_it:
+    hosted:
+      url: https://pub.dev
+    version: ^7.2.0
+  # BLoC状态管理
+  flutter_bloc:
+    hosted:
+      url: https://pub.dev
+    version: ^9.1.1
+  # 相等性比较
+  equatable:
+    hosted:
+      url: https://pub.dev
+    version: ^2.0.5
+  # JSON序列化
+  json_annotation:
+    hosted:
+      url: https://pub.dev
+    version: ^4.6.0
+  # Freezed注解
+  freezed_annotation:
+    hosted:
+      url: https://pub.dev
+    version: ^2.1.0
+  # 函数式编程
+  dartz:
+    hosted:
+      url: https://pub.dev
+    version: ^0.10.1
+  # 响应式编程
+  rxdart:
+    hosted:
+      url: https://pub.dev
+    version: ^0.28.0
+  # UUID生成
+  uuid:
+    hosted:
+      url: https://pub.dev
+    version: ^4.5.1
+  # 屏幕适配
+  flutter_screenutil:
+    hosted:
+      url: https://pub.dev
+    version: ^5.5.3+2
+  # 加载动画
+  flutter_spinkit:
+    hosted:
+      url: https://pub.dev
+    version: ^5.1.0
+  # Hooks
+  flutter_hooks:
+    hosted:
+      url: https://pub.dev
+    version: ^0.20.5
+  # Riverpod Hooks
+  hooks_riverpod:
+    hosted:
+      url: https://pub.dev
+    version: ^2.6.1
+  # Flutter Riverpod
+  flutter_riverpod:
+    hosted:
+      url: https://pub.dev
+    version: ^2.6.1
+  # Riverpod
+  riverpod:
+    hosted:
+      url: https://pub.dev
+    version: ^2.6.1
+  # 路由生成
+  auto_route:
+    hosted:
+      url: https://pub.dev
+    version: ^8.1.4
+  # 依赖注入生成
+  injectable:
+    hosted:
+      url: https://pub.dev
+    version: ^2.4.2
+  # GetX
+  get:
+    hosted:
+      url: https://pub.dev
+    version: ^4.6.5
+  # 资源生成
+  flutter_gen:
+    hosted:
+      url: https://pub.dev
+    version: ^5.9.0
+  # Windows定位
+  geolocator_windows:
+    hosted:
+      url: https://pub.dev
+    version: ^0.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
-  build_runner: ^2.2.0
-  json_serializable: ^6.7.1
-  freezed: ^2.1.0+1
-  mockito: ^5.3.0
+  flutter_lints:
+    hosted:
+      url: https://pub.dev
+    version: ^4.0.0
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  build_runner:
+    hosted:
+      url: https://pub.dev
+    version: ^2.4.6
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  json_serializable:
+    hosted:
+      url: https://pub.dev
+    version: ^6.7.1
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  freezed:
+    hosted:
+      url: https://pub.dev
+    version: ^2.1.0+1
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  mockito:
+    hosted:
+      url: https://pub.dev
+    version: ^5.3.0
+  # 显式指定公共仓库地址以覆盖私有仓库配置
   # 升级开发依赖以支持最新代码生成功能
-  auto_route_generator: ^8.0.0
-  injectable_generator: ^2.6.1
-  flutter_gen_runner: ^5.9.0
+  auto_route_generator:
+    hosted:
+      url: https://pub.dev
+    version: ^8.0.0
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  injectable_generator:
+    hosted:
+      url: https://pub.dev
+    version: ^2.6.1
+  # 显式指定公共仓库地址以覆盖私有仓库配置
+  flutter_gen_runner:
+    hosted:
+      url: https://pub.dev
+    version: ^5.9.0
+  # 显式指定公共仓库地址以覆盖私有仓库配置
   integration_test:
     sdk: flutter
   flutter_driver:
@@ -118,7 +387,11 @@ dependency_overrides:
   # 移除code_assets的Git依赖，改用本地管理
   # code_assets: ^1.0.0
   #   path: ../code_assets
-  js: ^0.7.1
+  js:
+    hosted:
+      url: https://pub.dev
+    version: ^0.7.1
+  # 显式指定公共仓库地址以覆盖私有仓库配置
   # 保留JavaScript互操作支持
 
 flutter:
